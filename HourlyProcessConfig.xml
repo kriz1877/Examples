@@ -1,0 +1,232 @@
+﻿<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="csvCandidateExtractProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+		<description>csvCandidateExtractProcess job gets candidates info from salesforce and saves info into a CSV file."</description>
+		<property name="name" value="csvCandidateExtractProcess"/>
+		<property name="configOverrideMap">
+			<map>
+				<entry key="sfdc.debugMessages" value="false"/>
+				<entry key="sfdc.debugMessagesFile" value="C:\salesforce_dataloader\dataloader_win\logs\sfdcSoapTrace.log"/>
+				<entry key="sfdc.endpoint" value="TEMPLATE_INSTANCENAME"/>
+				<entry key="sfdc.username" value="TEMPLATE_USERNAME"/>
+				<entry key="sfdc.password" value="TEMPLATE_PASSWORD"/>
+				<entry key="process.encryptionKeyFile" value="C:\Initial_Import\dataloader_win\docs\key.txt"/>
+				<entry key="sfdc.timeoutSecs" value="600"/>
+				<entry key="sfdc.loadBatchSize" value="200"/>
+				<entry key="sfdc.entity" value="cxsrec__cxsCandidate__c"/>
+				<entry key="sfdc.extractionRequestSize" value="500"/>
+				<entry key="sfdc.extractionSOQL" value="TEMPLATE_CANDIDATE_QUERY TEMPLATE_CANDIDATE_WHERE"/>
+				<entry key="process.operation" value="extract"/>
+				<entry key="process.mappingFile" value="C:\salesforce_dataloader\clients\mapping\candidateExtractMap.sdl"/>
+				<entry key="dataAccess.type" value="csvWrite"/>
+				<entry key="dataAccess.readUTF8" value="true"/>
+				<entry key="dataAccess.writeUTF8" value="true"/>
+				<entry key="sfdc.useBulkApi" value ="true"/>
+				<entry key ="process.enableExtractStatusOutput" value ="true"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="csvContactExtractProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+		<description>csvContactExtractProcess job gets contact info from salesforce and saves info into a CSV file."</description>
+		<property name="name" value="csvContactExtract"/>
+		<property name="configOverrideMap">
+			<map>
+				<entry key="sfdc.debugMessages" value="false"/>
+				<entry key="sfdc.debugMessagesFile" value="C:\salesforce_dataloader\dataloader_win\logs\sfdcSoapTrace.log"/>
+				<entry key="sfdc.endpoint" value="TEMPLATE_INSTANCENAME"/>
+				<entry key="sfdc.username" value="TEMPLATE_USERNAME"/>
+				<entry key="sfdc.password" value="TEMPLATE_PASSWORD"/>
+				<entry key="process.encryptionKeyFile" value="C:\Initial_Import\dataloader_win\docs\key.txt"/>
+				<entry key="sfdc.timeoutSecs" value="600"/>
+				<entry key="sfdc.loadBatchSize" value="200"/>
+				<entry key="sfdc.entity" value="Contact"/>
+				<entry key="sfdc.extractionRequestSize" value="500"/>
+				<entry key="sfdc.extractionSOQL" value="TEMPLATE_CONTACT_QUERY TEMPLATE_CONTACT_WHERE"/>
+				<entry key="process.operation" value="extract"/>
+				<entry key="process.mappingFile" value="C:\salesforce_dataloader\clients\mapping\contactExtractMap.sdl"/>
+				<entry key="dataAccess.type" value="csvWrite"/>
+				<entry key="dataAccess.readUTF8" value="true"/>
+				<entry key="dataAccess.writeUTF8" value="true"/>
+				<entry key="sfdc.useBulkApi" value ="true"/>
+				<entry key ="process.enableExtractStatusOutput" value ="true"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="csvPlacementExtractProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+		<description>csvPlacementExtractProcess job gets placement info from salesforce and saves info into a CSV file."</description>
+		<property name="name" value="csvPlacementExtract"/>
+		<property name="configOverrideMap">
+			<map>
+				<entry key="sfdc.debugMessages" value="false"/>
+				<entry key="sfdc.debugMessagesFile" value="C:\salesforce_dataloader\dataloader_win\logs\sfdcSoapTrace.log"/>
+				<entry key="sfdc.endpoint" value="TEMPLATE_INSTANCENAME"/>
+				<entry key="sfdc.username" value="TEMPLATE_USERNAME"/>
+				<entry key="sfdc.password" value="TEMPLATE_PASSWORD"/>
+				<entry key="process.encryptionKeyFile" value="C:\Initial_Import\dataloader_win\docs\key.txt"/>
+				<entry key="sfdc.timeoutSecs" value="600"/>
+				<entry key="sfdc.loadBatchSize" value="200"/>
+				<entry key="sfdc.entity" value="cxsrec__cxsStep__c"/>
+				<entry key="sfdc.extractionRequestSize" value="500"/>
+				<entry key="sfdc.extractionSOQL" value="TEMPLATE_PLACEMENT_QUERY TEMPLATE_PLACEMENT_WHERE"/>
+				<entry key="process.operation" value="extract"/>
+				<entry key="process.mappingFile" value="C:\salesforce_dataloader\clients\mapping\placementExtractMap.sdl"/>
+				<entry key="dataAccess.type" value="csvWrite"/>
+				<entry key="dataAccess.readUTF8" value="true"/>
+				<entry key="dataAccess.writeUTF8" value="true"/>
+				<entry key="sfdc.useBulkApi" value ="true"/>
+				<entry key ="process.enableExtractStatusOutput" value ="true"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="csvApplicationExtractProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+		<description>csvApplicationExtractProcess job gets contact info from salesforce and saves info into a CSV file."</description>
+		<property name="name" value="csvApplicationExtract"/>
+		<property name="configOverrideMap">
+			<map>
+				<entry key="sfdc.debugMessages" value="false"/>
+				<entry key="sfdc.debugMessagesFile" value="C:\salesforce_dataloader\dataloader_win\logs\sfdcSoapTrace.log"/>
+				<entry key="sfdc.endpoint" value="TEMPLATE_INSTANCENAME"/>
+				<entry key="sfdc.username" value="TEMPLATE_USERNAME"/>
+				<entry key="sfdc.password" value="TEMPLATE_PASSWORD"/>
+				<entry key="process.encryptionKeyFile" value="C:\Initial_Import\dataloader_win\docs\key.txt"/>
+				<entry key="sfdc.timeoutSecs" value="600"/>
+				<entry key="sfdc.loadBatchSize" value="200"/>
+				<entry key="sfdc.entity" value="cxsrec__cxsJob_application__c"/>
+				<entry key="sfdc.extractionRequestSize" value="500"/>
+				<entry key="sfdc.extractionSOQL" value="TEMPLATE_SUBMISSION_QUERY TEMPLATE_SUBMISSION_WHERE"/>
+				<entry key="process.operation" value="extract"/>
+				<entry key="process.mappingFile" value="C:\salesforce_dataloader\clients\mapping\applicationExtractMap.sdl"/>
+				<entry key="dataAccess.type" value="csvWrite"/>
+				<entry key="dataAccess.readUTF8" value="true"/>
+				<entry key="dataAccess.writeUTF8" value="true"/>
+				<entry key="sfdc.useBulkApi" value ="true"/>
+				<entry key ="process.enableExtractStatusOutput" value ="true"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="csvAccountExtractProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+		<description>csvAccountExtractProcess Company gets contact info from salesforce and saves info into a CSV file."</description>
+		<property name="name" value="csvAccountExtract"/>
+		<property name="configOverrideMap">
+			<map>
+				<entry key="sfdc.debugMessages" value="false"/>
+				<entry key="sfdc.debugMessagesFile" value="C:\salesforce_dataloader\dataloader_win\logs\sfdcSoapTrace.log"/>
+				<entry key="sfdc.endpoint" value="TEMPLATE_INSTANCENAME"/>
+				<entry key="sfdc.username" value="TEMPLATE_USERNAME"/>
+				<entry key="sfdc.password" value="TEMPLATE_PASSWORD"/>
+				<entry key="process.encryptionKeyFile" value="C:\Initial_Import\dataloader_win\docs\key.txt"/>
+				<entry key="sfdc.timeoutSecs" value="600"/>
+				<entry key="sfdc.loadBatchSize" value="200"/>
+				<entry key="sfdc.entity" value="cxsrec__cxsJob_application__c"/>
+				<entry key="sfdc.extractionRequestSize" value="500"/>
+				<entry key="sfdc.extractionSOQL" value="TEMPLATE_COMPANY_QUERY TEMPLATE_COMPANY_WHERE"/>
+				<entry key="process.operation" value="extract"/>
+				<entry key="process.mappingFile" value="C:\salesforce_dataloader\clients\mapping\companyExtractMap.sdl"/>
+				<entry key="dataAccess.type" value="csvWrite"/>
+				<entry key="dataAccess.readUTF8" value="true"/>
+				<entry key="dataAccess.writeUTF8" value="true"/>
+				<entry key="sfdc.useBulkApi" value ="true"/>
+				<entry key ="process.enableExtractStatusOutput" value ="true"/>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="csvJobExtractProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+		<description>csvJobExtractProcess job gets Job info from salesforce and saves info into a CSV file."</description>
+		<property name="name" value="csvJobExtract"/>
+		<property name="configOverrideMap">
+			<map>
+				<entry key="sfdc.debugMessages" value="false"/>
+				<entry key="sfdc.debugMessagesFile" value="C:\salesforce_dataloader\dataloader_win\logs\sfdcSoapTrace.log"/>
+				<entry key="sfdc.endpoint" value="TEMPLATE_INSTANCENAME"/>
+				<entry key="sfdc.username" value="TEMPLATE_USERNAME"/>
+				<entry key="sfdc.password" value="TEMPLATE_PASSWORD"/>
+				<entry key="process.encryptionKeyFile" value="C:\Initial_Import\dataloader_win\docs\key.txt"/>
+				<entry key="sfdc.timeoutSecs" value="600"/>
+				<entry key="sfdc.loadBatchSize" value="200"/>
+				<entry key="sfdc.entity" value="cxsrec__cxsPosition__c"/>
+				<entry key="sfdc.extractionRequestSize" value="500"/>
+				<entry key="sfdc.extractionSOQL" value="TEMPLATE_JOB_QUERY TEMPLATE_JOB_WHERE"/>
+				<entry key="process.operation" value="extract"/>
+				<entry key="process.mappingFile" value="C:\salesforce_dataloader\clients\mapping\jobExtractMap.sdl"/>
+				<entry key="dataAccess.type" value="csvWrite"/>
+				<entry key="dataAccess.readUTF8" value="true"/>
+				<entry key="dataAccess.writeUTF8" value="true"/>
+				<entry key="sfdc.useBulkApi" value ="true"/>
+				<entry key ="process.enableExtractStatusOutput" value ="true"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="csvUserExtractProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+		<description>csvUserExtractProcess job gets user info from salesforce and saves info into a CSV file."</description>
+		<property name="name" value="csvUserExtract"/>
+		<property name="configOverrideMap">
+			<map>
+				<entry key="sfdc.debugMessages" value="false"/>
+				<entry key="sfdc.debugMessagesFile" value="C:\salesforce_dataloader\dataloader_win\logs\sfdcSoapTrace.log"/>
+				<entry key="sfdc.endpoint" value="TEMPLATE_INSTANCENAME"/>
+				<entry key="sfdc.username" value="TEMPLATE_USERNAME"/>
+				<entry key="sfdc.password" value="TEMPLATE_PASSWORD"/>
+				<entry key="process.encryptionKeyFile" value="C:\Initial_Import\dataloader_win\docs\key.txt"/>
+				<entry key="sfdc.timeoutSecs" value="600"/>
+				<entry key="sfdc.loadBatchSize" value="200"/>
+				<entry key="sfdc.entity" value="User"/>
+				<entry key="sfdc.extractionRequestSize" value="500"/>
+				<entry key="sfdc.extractionSOQL" value="SELECT Email,IsActive,ID,Name,FirstName,LastName,Phone,Title FROM User"/>
+				<entry key="process.operation" value="extract"/>
+				<entry key="process.mappingFile" value="C:\salesforce_dataloader\clients\mapping\userExtractMap.sdl"/>
+				<entry key="dataAccess.type" value="csvWrite"/>
+				<entry key="dataAccess.readUTF8" value="true"/>
+				<entry key="dataAccess.writeUTF8" value="true"/>
+				<entry key="sfdc.useBulkApi" value ="true"/>
+				<entry key ="process.enableExtractStatusOutput" value ="true"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="csvTaskExtractProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+		<description>csvTaskExtractProcess job gets contact info from salesforce and saves info into a CSV file."</description>
+		<property name="name" value="csvTaskExtract"/>
+		<property name="configOverrideMap">
+			<map>
+				<entry key="sfdc.debugMessages" value="false"/>
+				<entry key="sfdc.debugMessagesFile" value="C:\salesforce_dataloader\dataloader_win\logs\sfdcSoapTrace.log"/>
+				<entry key="sfdc.endpoint" value="TEMPLATE_INSTANCENAME"/>
+				<entry key="sfdc.username" value="TEMPLATE_USERNAME"/>
+				<entry key="sfdc.password" value="TEMPLATE_PASSWORD"/>
+				<entry key="process.encryptionKeyFile" value="C:\Initial_Import\dataloader_win\docs\key.txt"/>
+				<entry key="sfdc.timeoutSecs" value="600"/>
+				<entry key="sfdc.loadBatchSize" value="200"/>
+				<entry key="sfdc.entity" value="Task"/>
+				<entry key="sfdc.extractionRequestSize" value="500"/>
+				<entry key="sfdc.extractionSOQL" value="SELECT CreatedById,Id,ISDELETED,CreatedDate,WhoId FROM Task"/>
+				<entry key="process.operation" value="extract"/>
+				<entry key="process.mappingFile" value="C:\salesforce_dataloader\clients\mapping\taskExtractMap.sdl"/>
+				<entry key="dataAccess.type" value="csvWrite"/>
+				<entry key="sfdc.useBulkApi" value ="true"/>
+				<entry key ="process.enableExtractStatusOutput" value ="true"/>
+			</map>
+		</property>
+	</bean>
+</beans>
